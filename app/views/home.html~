@@ -1,0 +1,22 @@
+ <!--<ul>
+        <li><a ui-sref="status">Status</a></li>
+        <li><a ui-sref="history">History</a></li>
+    </ul>
+
+<div class="container">
+    <div ui-view></div>
+</div>-->
+<div class="row">
+
+    <div >
+        <div ui-view="status"></div>
+    </div>
+    
+    
+    <div >
+        <div ui-view="history"></div>
+    </div>
+
+    
+</div>
+
