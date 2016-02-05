@@ -6,8 +6,11 @@
 			<br>
 			<div class="date">
 				<span class="input-date-label">Date</span>
-				<input type="date" class="form-control form-input"
-					ng-model="status.date"required ">
+				<select name="dates" class="dated" required>
+					<option selected disabled>-- Select Project --</option>
+					<option ng-repeat="date in dates" value="{{date}}">
+						{{date.title}}</option>
+				</select>
 			</div>
 			<div class="projects">
 			<span class="input-project-label">Project</span>
@@ -27,14 +30,26 @@
 			</div>
 			<div class="time">
 			<span class="input-time-label">Time Spend</span>
-				<select name="time" class="time_list" required>
-					<option selected disabled>-- Select Time --</option>
-					<option ng-repeat="time in time_list"
-						value="{{time.value}}">{{time}}</option>
+				<select name="hours" class="hours" required>
+					<option selected disabled>-- Select Hour --</option>
+					<option ng-repeat="hour in hours"
+						value="{{hour.value}}">{{hour.value}}</option>
+				</select>
+<select name="minutes" class="minutes" required>
+					<option selected disabled>-- Select Minute --</option>
+					<option ng-repeat="minute in minutes"
+						value="{{minute.value}}">{{minute.value}}</option>
 				</select>
 			</div>
+<div class="time">
+<div>
+<span class="input-description-label">Activity description</span></div>
+<div>
+<textarea rows="4" cols="50" name="description" >
+</textarea></div>
+</div>
 			<button type="submit" class="btn btn-primary"
-				ng-disabled="userForm.$invalid" style="text-align: center">Submit</button>
+				ng-disabled="statusForm.$invalid" style="text-align: center">Submit</button>
 		</form>
 	</div>
 
