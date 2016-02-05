@@ -1,7 +1,8 @@
 <div ng-controller="StatusController">
-	Status
+
 		<form name="statusForm" ng-submit="submitForm(statusForm.$valid)"
-			novalidate>
+			ng-submit="submitForm(statusForm.$valid)" novalidate style="border-style: solid;
+    border-width: 1px;">
 			<h3>STATUS FORM</h3>
 			<br>
 			<div class="date">
@@ -49,7 +50,7 @@
 </textarea></div>
 </div>
 			<button type="submit" class="btn btn-primary"
-				ng-disabled="statusForm.$invalid" style="text-align: center">Submit</button>
+				ng-disabled="statusForm.$invalid" style="text-align: center">Save</button>
 		</form>
 	</div>
 
