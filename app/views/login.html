@@ -1,18 +1,17 @@
 <div>
     <div class="row">
-        <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate style="text-align:center" id="login_id" class="form_class">
+        <form name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate >
             <h3>LOGIN FORM</h3><br>
-            <span id="show_error"></span>
             <div class="form-group" ng-class="{ '' : userForm.email.$invalid && !userForm.email.$pristine }">
                 <div class="input-label">Email</div>
                 <input type="email" name="email" class="form-control form-input" ng-model="user.email"  required id="email">
-                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block" style="color:red">Enter a valid email.</p>
+                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" style="color:red">Enter a valid email.</p>
             </div>
             <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
                 <div class="input-label">Password</div>
-                <input type="password" name="password" class="form-control form-input" ng-model="user.password"  required id="password">
+                <input type="password" name="password" class="form-control form-input" ng-model="user.password"  required >
             </div>
-            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" style="text-align:center">Submit</button>
+            <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" >Submit</button>
         </form>
     </div>
 </div>
