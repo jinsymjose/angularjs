@@ -1,54 +1,69 @@
 <div ng-controller="StatusController">
 
 		<form name="statusForm" ng-submit="submitForm(statusForm.$valid)"
-			ng-submit="submitForm(statusForm.$valid)" novalidate style="border-style: solid;
+		 novalidate style="border-style: solid;
     border-width: 1px;">
 			<h3>STATUS FORM</h3>
 			<br>
-			<div class="date">
-				<span class="input-date-label">Date</span>
-				<select name="dates" class="dated" required>
-					<option selected disabled>-- Select Date --</option>
-					<option ng-repeat="date in dates" value="{{date}}">
-						{{date.title}}</option>
-				</select>
-			</div>
-			<div class="projects">
-			<span class="input-project-label">Project</span>
-				<select name="projects" class="project_list" required>
-					<option selected disabled>-- Select Project --</option>
-					<option ng-repeat="project in project_list" value="{{project.name}}">
-						{{project.name}}</option>
-				</select>
-			</div>
-			<div class="activity">
-			<span class="input-activity-label">Activity</span>
-				<select name="activities" class="activity_list" required>
-					<option selected disabled>-- Select Activity --</option>
-					<option ng-repeat="activity in activity_list"
-						value="{{activity.name}}">{{activity.name}}</option>
-				</select>
-			</div>
-			<div class="time">
-			<span class="input-time-label">Time Spend</span>
-				<select name="hours" class="hours" required>
-					<option selected disabled>-- Select Hour --</option>
-					<option ng-repeat="hour in hours"
-						value="{{hour.value}}">{{hour.value}}</option>
-				</select>
-<select name="minutes" class="minutes" required>
-					<option selected disabled>-- Select Minute --</option>
-					<option ng-repeat="minute in minutes"
-						value="{{minute.value}}">{{minute.value}}</option>
-				</select>
-			</div>
-<div class="time">
-<div>
-<span class="input-description-label">Activity description</span></div>
-<div>
-<textarea rows="4" cols="50" name="description" >
-</textarea></div>
+
+<div class="form-group" ng-class="{ 'has-error' : statusForm.dates.$dirty && statusForm.dates.$invalid }">
+    <label>Date</label>
+<select name="dates"        
+      ng-model="date" 
+      ng-options="date.title for date in dates"
+      required> 
+  <option value="">Select Date</option> 
+ </select> 
+ <span class="error" ng-show="statusForm.dates.$dirty && statusForm.dates.$invalid">Select Date</span>
 </div>
+
+<div class="form-group" ng-class="{ 'has-error' : statusForm.projects.$dirty && statusForm.projects.$invalid }">
+    <label>Project</label>
+<select name="projects"        
+      ng-model="project" 
+      ng-options="project.name for project in project_list"
+      required> 
+  <option value="">Select Project</option> 
+ </select> 
+ <span class="error" ng-show="statusForm.projects.$dirty && statusForm.projects.$invalid">Select Project</span>
+</div>
+
+<div class="form-group" ng-class="{ 'has-error' : statusForm.activities.$dirty && statusForm.activities.$invalid }">
+    <label>Activity</label>
+<select name="activities"        
+      ng-model="activity" 
+      ng-options="activity.name for activity in activity_list"
+      required> 
+  <option value="">Select Activity</option> 
+ </select> 
+ <span class="error" ng-show="statusForm.activities.$dirty && statusForm.activities.$invalid">Select Activity</span>
+</div>
+
+<div class="form-group" ng-class="{ 'has-error' : statusForm.minutes.$dirty && statusForm.minutes.$invalid && statusForm.hours.$dirty && statusForm.hours.$invalid }">
+    <label>Time Spend</label>
+<select name="hours"        
+      ng-model="hour" 
+      ng-options="hour.value for hour in hours"
+      required> 
+  <option value="">Select Hour</option> 
+ </select> 
+<select name="minutes"        
+      ng-model="minute" 
+      ng-options="minute.value for minute in minutes"
+      required> 
+  <option value="">Select Minute</option> 
+ </select> 
+ <span class="error" ng-show="statusForm.minutes.$dirty && statusForm.minutes.$invalid && statusForm.hours.$dirty && statusForm.hours.$invalid">Select time spend</span>
+</div>
+
+<div class="form-group" ng-class="{ 'has-error' : statusForm.description.$error.minlength }">
+<div>
+    <label>Activity description</label></div>
+   <textarea rows="4" cols="50" name="description"  ng-model="description" ng-minlength="1" ng-required="true">
+</textarea>
+    <span ng-show="statusForm.description.$error.minlength" class="help-block">This field may not be blank</span>
+</div>
+
 			<button type="submit" class="btn btn-primary"
 				ng-disabled="statusForm.$invalid" style="text-align: center">Save</button>
 		</form>
