@@ -53,22 +53,7 @@ $scope.activity_list = null;
         });
     }
 
-$scope.statusHistory = [   
-    {                     
-        "date": "$scope.date.title",
-                    "project": "$scope.project.name",
-                    "activity": "$scope.activity.name",
-                    "time":" $scope.hour.value" +':' +"$scope.minute.value",
-                    "description": "$scope.description"
-    },
-    {
-      "date": "$scope.date.title",
-                    "project": "$scope.project.name",
-                    "activity": "$scope.activity.name",
-                    "time":" $scope.hour.value" +':' +"$scope.minute.value",
-                    "description": "$scope.description"
-    }
- ] ;
+$scope.statusHistory = [] ;
 $scope.addItem =  function(isValid) {
 console.log("isValid :" +isValid)
 if(isValid){
