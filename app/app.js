@@ -20,7 +20,7 @@ controller:'LoginController'
       },
       'history@home': {
         templateUrl: 'views/history.html',
-        controller: 'HistoryController'
+        controller: 'StatusController'
       }
     }
 

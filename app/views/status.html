@@ -1,6 +1,6 @@
 <div ng-controller="StatusController">
 
-		<form name="statusForm" ng-submit="submitForm(statusForm.$valid)"
+		<form name="statusForm" ng-submit="addItem(statusForm.$valid)"
 		 novalidate style="border-style: solid;
     border-width: 1px;">
 			<h3>STATUS FORM</h3>
@@ -61,11 +61,14 @@
     <label>Activity description</label></div>
    <textarea rows="4" cols="50" name="description"  ng-model="description" ng-minlength="1" ng-required="true">
 </textarea>
+
     <span ng-show="statusForm.description.$error.minlength" class="help-block">This field may not be blank</span>
 </div>
-
 			<button type="submit" class="btn btn-primary"
 				ng-disabled="statusForm.$invalid" style="text-align: center">Save</button>
 		</form>
+
+
+
 	</div>
 
