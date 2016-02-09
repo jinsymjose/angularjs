@@ -1,2 +1,3 @@
-myAppModule.controller('HistoryController', function($scope,$http) {
-});
+myAppModule.controller('HistoryController', ['$scope','$http',function($scope,$http) {
+
+}]);

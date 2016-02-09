@@ -1,18 +1,16 @@
-<div ng-controller="StatusController" style="border-style: solid;
-    border-width: 1px;">
-
-<div class="status_history">
-    <h4><b>My History</b></h4>
-{{date.title}}
+<div class="history">
+    <h4><b>Status History</b></h4>
 </div>
-<ul >
-    <li ng-show="statusHistory.length" ng-repeat="history in statusHistory">
-        <div class="history_date">{{history.date}}</div>
-        <div class="history_description">{{history.description}}</div>
-        <div class="history_time">{{history.time}} Hour(s)</div>
-        <div class="history_activity">{{history.activity}}</div><br/>
-        <div class="history_project">{{history.project}}</div><br/>
-    </li>
-<li ng-show="!statusHistory.length">No items</li>
-</ul>
+
+<div ng-repeat="history in statusHistory"><br>
+<div class="status_history">
+<div class="history_date">{{history.date}}<br>
+Posted on 12:12:2015</div>
+<div class="history_description">{{history.description}}</div>
+<div class="history_third_div">
+{{history.time}} Hour(s)<br/>
+{{history.activity}}<br/>
+{{history.project}}
+</div><br>
+<div ng-show="!statusHistory.length">No items</div>
 </div>

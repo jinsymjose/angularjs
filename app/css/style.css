@@ -1,0 +1,68 @@
+header{
+background-color:#333;
+height: 10%;
+width:100%;
+ position: fixed;
+    top: 0%;
+left:0%;
+}
+footer{
+background-color:#333;
+height: 10%;
+width:100%;
+    position: fixed;
+    bottom: 0%;
+left:0%;
+}
+
+.main{
+background-color:#EEEEEE;
+position: absolute;
+padding-top:20%;
+}
+body {
+	background-color: #EEEEEE;
+}
+#login{
+border-radius: 25px;
+margin: auto;
+position: absolute;
+top:25%;
+left:40%;
+border:1px solid black;
+}
+.row{
+padding:40px;
+}
+.form_div{
+display:inline-block;
+width:20%;
+}
+.form_div select{
+max-width:90%;
+}
+.status_history{
+border:1px solid black;
+padding:1%;
+}
+ .history_date {
+      display: inline-block;
+      width: 20%; 
+}
+ .history_third_div {
+      display: inline-block;
+      width: 20%;
+      position: relative;
+      left: 76%; 
+}
+ .history_description {
+      display: inline-block;
+      width: 60%;
+ position: relative;
+      left: 30%; 
+      font-weight: bold; 
+}
+.daily_status{
+border:1px solid black;
+padding:1%;
+}

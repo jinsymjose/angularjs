@@ -1,74 +1,43 @@
-<div ng-controller="StatusController">
-
-		<form name="statusForm" ng-submit="addItem(statusForm.$valid)"
-		 novalidate style="border-style: solid;
-    border-width: 1px;">
-			<h3>STATUS FORM</h3>
-			<br>
-
-<div class="form-group" ng-class="{ 'has-error' : statusForm.dates.$dirty && statusForm.dates.$invalid }">
-    <label>Date</label>
-<select name="dates"        
-      ng-model="date" 
-      ng-options="date.title for date in dates"
-      required> 
-  <option value="">Select Date</option> 
- </select> 
- <span class="error" ng-show="statusForm.dates.$dirty && statusForm.dates.$invalid">Select Date</span>
-</div>
-
-<div class="form-group" ng-class="{ 'has-error' : statusForm.projects.$dirty && statusForm.projects.$invalid }">
-    <label>Project</label>
-<select name="projects"        
-      ng-model="project" 
-      ng-options="project.name for project in project_list"
-      required> 
-  <option value="">Select Project</option> 
- </select> 
- <span class="error" ng-show="statusForm.projects.$dirty && statusForm.projects.$invalid">Select Project</span>
-</div>
-
-<div class="form-group" ng-class="{ 'has-error' : statusForm.activities.$dirty && statusForm.activities.$invalid }">
-    <label>Activity</label>
-<select name="activities"        
-      ng-model="activity" 
-      ng-options="activity.name for activity in activity_list"
-      required> 
-  <option value="">Select Activity</option> 
- </select> 
- <span class="error" ng-show="statusForm.activities.$dirty && statusForm.activities.$invalid">Select Activity</span>
-</div>
-
-<div class="form-group" ng-class="{ 'has-error' : statusForm.minutes.$dirty && statusForm.minutes.$invalid && statusForm.hours.$dirty && statusForm.hours.$invalid }">
-    <label>Time Spend</label>
-<select name="hours"        
-      ng-model="hour" 
-      ng-options="hour.value for hour in hours"
-      required> 
-  <option value="">Select Hour</option> 
- </select> 
-<select name="minutes"        
-      ng-model="minute" 
-      ng-options="minute.value for minute in minutes"
-      required> 
-  <option value="">Select Minute</option> 
- </select> 
- <span class="error" ng-show="statusForm.minutes.$dirty && statusForm.minutes.$invalid && statusForm.hours.$dirty && statusForm.hours.$invalid">Select time spend</span>
-</div>
-
-<div class="form-group" ng-class="{ 'has-error' : statusForm.description.$error.minlength }">
 <div>
-    <label>Activity description</label></div>
-   <textarea rows="4" cols="50" name="description"  ng-model="description" ng-minlength="1" ng-required="true">
-</textarea>
-
-    <span ng-show="statusForm.description.$error.minlength" class="help-block">This field may not be blank</span>
+	<h2 >
+		Daily Status
+	</h2>
 </div>
-			<button type="submit" class="btn btn-primary"
-				ng-disabled="statusForm.$invalid" style="text-align: center">Save</button>
-		</form>
-
-
-
-	</div>
-
+<div class="daily_status">
+<h4 >Bursts<h4 >
+<form ng-submit="addItem()" id="ItemForm" novalidate >
+    <div class="form_div">
+      <br>  Date <br>
+        <select ng-model="date"
+            ng-options="date.title for date in dates" >
+        </select>
+    </div>
+    <div class="form_div">
+       <br> Project <br>
+        <select ng-model="project"
+            ng-options="project.title for project in project_list" >
+        </select>
+    </div>
+    <div class="form_div">
+       <br>Activity Type<br>
+        <select ng-model="activity"
+            ng-options="activity.title for activity in activity_list" >
+        </select>
+    </div>
+    <div class="form_div">
+        <br>Time Spent (hours:minutes)<br>
+            <select ng-model="hour"
+                ng-options="hour.value for hour in hours" >
+            </select>
+            <select ng-model="minute"
+                ng-options="minute.value for minute in minutes" >
+            </select>
+    </div>
+<div class="form_div1">
+    <br>Activity Description <br>
+        <textarea  rows="5" cols="60" ng-model="description"></textarea >
+        <br/>
+    <input type="submit" value="SAVE">
+</div>
+</form>
+</div>

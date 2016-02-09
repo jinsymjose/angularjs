@@ -1,0 +1,16 @@
+[
+        {
+            "date": "01-02-2016",
+            "project": "N/A",
+            "activity": "Learning",
+            "time": "8 : 30",
+            "description": "Started AngularJS"
+        },
+        {
+            "date": "02-02-2016",
+            "project": "N/A",
+            "activity": "Learning",
+            "time": "7 : 45",
+            "description": "Directives in AngularJS"
+        }
+    ]

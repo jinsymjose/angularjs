@@ -1,4 +1,4 @@
-myAppModule.controller('StatusController', function($scope,$http,$location) {
+myAppModule.controller('StatusController',['$scope','$http','$location','$rootScope', function($scope,$http,$location,$rootScope) {
 
  $scope.project_list = null;
     $http.get('../app/json/project_list.json')
@@ -15,6 +15,15 @@ $scope.activity_list = null;
         })
         .error(function(data,status,error,config){
             $scope.activity_list = [{heading:"Error",description:"Could not load json   data"}];
+        });
+
+$rootScope.statusHistory = [];
+    $http.get('../app/json/history.json')
+        .success(function(data) {
+            $rootScope.statusHistory=data;
+        })
+        .error(function(data,status,error,config){
+            $rootScope.statusHistory = [{heading:"Error",description:"Could not load json   data"}];
         });
 
     $scope.hours = [];
@@ -53,20 +62,16 @@ $scope.activity_list = null;
         });
     }
 
-$scope.statusHistory = [] ;
-$scope.addItem =  function(isValid) {
-console.log("isValid :" +isValid)
-if(isValid){
-            $scope.statusHistory.push(
+$scope.addItem =  function() {
+            $rootScope.statusHistory.push(
                 {
                     date: $scope.date.title,
-                    project: $scope.project.name,
-                    activity: $scope.activity.name,
-                    time: $scope.hour.value +':' +$scope.minute.value,
+                    project: $scope.project.title,
+                    activity: $scope.activity.title,
+                    time: $scope.hour.value +':' +$scope.minute.value ,
                     description: $scope.description
                 });
-console.log($scope.statusHistory[0]);
-$location.path('/home').replace();
-}
     };
-});
+
+
+}]);

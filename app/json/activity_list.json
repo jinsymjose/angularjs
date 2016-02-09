@@ -1,4 +1,4 @@
-[{"activity_id":1, "name":"Development" },
- {"activity_id":2, "name":"Testing"},
- {"activity_id":3, "name":"Learning" },
- {"activity_id":4, "name":"Training" }]
+[{"activity_id":1, "title":"Development" },
+ {"activity_id":2, "title":"Testing"},
+ {"activity_id":3, "title":"Learning" },
+ {"activity_id":4, "title":"Training" }]
