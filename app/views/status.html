@@ -15,7 +15,7 @@
     <div class="form_div">
        <br> Project <br>
         <select ng-model="project" class="project"  select2
-            ng-options="project.title for project in project_list " >
+            ng-options="project.title for project in project_list track by $index " >
         </select>
     </div>
     <div class="form_div">

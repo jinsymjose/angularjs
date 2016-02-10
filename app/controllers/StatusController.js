@@ -82,12 +82,6 @@ $scope.addItem =  function() {
                     time: $scope.hour.value +':' +$scope.minute.value ,
                     description: $scope.description
                 });
-$scope.date.title='';
-$scope.project.title='';
-$scope.activity.title='';
-$scope.hour.value ='';
-$scope.minute.value='' ;
-$scope.description='';
     };
 
 
