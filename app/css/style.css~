@@ -28,8 +28,9 @@ font-family:Verdana;
 border-radius: 25px;
 margin: auto;
 position: absolute;
-top:25%;
-left:40%;
+top:15%;
+left:35%;
+width:30%;
 border:1px solid #DDDDDD;
 }
 .row{
@@ -50,11 +51,11 @@ width:173px;
 .form_div select.project{
 width:372px;
 }
-.hour{
-width:86;
+.form_div select.hour{
+width:86px;
 }
-.minute{
-width:86;
+.form_div select.minute{
+width:86px;
 }
 .status_history{
 border:1px solid #DDDDDD;

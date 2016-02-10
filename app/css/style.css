@@ -28,8 +28,9 @@ font-family:Verdana;
 border-radius: 25px;
 margin: auto;
 position: absolute;
-top:25%;
-left:40%;
+top:15%;
+left:35%;
+width:30%;
 border:1px solid #DDDDDD;
 }
 .row{
