@@ -5,37 +5,37 @@
 </div>
 <div class="daily_status">
 <h4 >Bursts<h4 >
-<form ng-submit="addItem()" id="ItemForm" novalidate >
+<form ng-submit="addItem()" " novalidate >
     <div class="form_div">
       <br>  Date <br>
-        <select ng-model="date"
+        <select ng-model="date" class="date"  placeholder="Date"
             ng-options="date.title for date in dates" >
         </select>
     </div>
     <div class="form_div">
        <br> Project <br>
-        <select ng-model="project"
-            ng-options="project.title for project in project_list" >
+        <select ng-model="project" class="project"  select2
+            ng-options="project.title for project in project_list " >
         </select>
     </div>
     <div class="form_div">
        <br>Activity Type<br>
-        <select ng-model="activity"
-            ng-options="activity.title for activity in activity_list" >
+        <select ng-model="activity" class="activity"
+            ng-options="activity.title for activity in activity_list track by $index" >
         </select>
     </div>
     <div class="form_div">
         <br>Time Spent (hours:minutes)<br>
-            <select ng-model="hour"
+            <select ng-model="hour" class="hour"
                 ng-options="hour.value for hour in hours" >
             </select>
-            <select ng-model="minute"
+            <select ng-model="minute" class="minute"
                 ng-options="minute.value for minute in minutes" >
             </select>
     </div>
 <div class="form_div1">
     <br>Activity Description <br>
-        <textarea  rows="5" cols="60" ng-model="description"></textarea >
+        <textarea  rows="5" cols="60" ng-model="description"  placeholder="Use T# or t# in your description to indicate Redmine ticket/task. For example : T#1234" ></textarea >
         <br/>
     <input type="submit" value="SAVE">
 </div>

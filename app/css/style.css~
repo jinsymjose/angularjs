@@ -1,5 +1,5 @@
 header{
-background-color:#333;
+background-color:#2C3742;
 height: 10%;
 width:100%;
  position: fixed;
@@ -7,7 +7,7 @@ width:100%;
 left:0%;
 }
 footer{
-background-color:#333;
+background-color:#2C3742;
 height: 10%;
 width:100%;
     position: fixed;
@@ -16,31 +16,50 @@ left:0%;
 }
 
 .main{
-background-color:#EEEEEE;
 position: absolute;
 padding-top:20%;
 }
 body {
-	background-color: #EEEEEE;
+background-color: #fff;
+font-family:Verdana;
 }
+
 #login{
 border-radius: 25px;
 margin: auto;
 position: absolute;
 top:25%;
 left:40%;
-border:1px solid black;
+border:1px solid #DDDDDD;
 }
 .row{
 padding:40px;
 }
 .form_div{
 display:inline-block;
-width:20%;
+
+}
+.form_div select{
+    background-color:white;
+height:30px;
+}
+.form_div select.date,.form_div select.activity{
+width:173px;
+
+}
+.form_div select.project{
+width:372px;
+}
+.hour{
+width:86;
+}
+.minute{
+width:86;
 }
 .status_history{
-border:1px solid black;
+border:1px solid #DDDDDD;
 padding:1%;
+background-color:#F3F3F3;
 }
  .history_date {
       display: inline-block;
@@ -59,7 +78,8 @@ padding:1%;
       left: 30%; 
       font-weight: bold; 
 }
-.daily_status{
-border:1px solid black;
+.daily_status{ 
+border:1px solid #DDDDDD;
 padding:1%;
+background-color:#F3F3F3;
 }

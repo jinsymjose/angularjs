@@ -1,5 +1,14 @@
 myAppModule.controller('StatusController',['$scope','$http','$location','$rootScope', function($scope,$http,$location,$rootScope) {
-
+myAppModule.directive("select2",function($timeout,$parse){
+    return {
+        restrict: 'AC',
+        link: function(scope, element, attrs) {
+            $timeout(function() {
+                $(element).select2();
+            },200); 
+        }
+    };
+});
  $scope.project_list = null;
     $http.get('../app/json/project_list.json')
         .success(function(data) {
@@ -61,7 +70,9 @@ $rootScope.statusHistory = [];
             title: endDate
         });
     }
-
+ $scope.date= $scope.dates[0];
+$scope.hour= $scope.hours[8];
+$scope.minute= $scope.minutes[0];
 $scope.addItem =  function() {
             $rootScope.statusHistory.push(
                 {
@@ -71,6 +82,12 @@ $scope.addItem =  function() {
                     time: $scope.hour.value +':' +$scope.minute.value ,
                     description: $scope.description
                 });
+$scope.date.title='';
+$scope.project.title='';
+$scope.activity.title='';
+$scope.hour.value ='';
+$scope.minute.value='' ;
+$scope.description='';
     };
 
 
