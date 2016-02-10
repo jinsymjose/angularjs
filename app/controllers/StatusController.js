@@ -1,76 +1,24 @@
-myAppModule.controller('StatusController',['$scope','$http','$location','$rootScope', function($scope,$http,$location,$rootScope) {
-myAppModule.directive("select2",function($timeout,$parse){
-    return {
-        restrict: 'AC',
-        link: function(scope, element, attrs) {
-            $timeout(function() {
-                $(element).select2();
-            },200); 
-        }
-    };
-});
+myAppModule.controller('StatusController',['$scope','$http','$location','$rootScope','UtilService',function($scope,$http,$location,$rootScope,UtilService) {
+
  $scope.project_list = null;
-    $http.get('../app/json/project_list.json')
-        .success(function(data) {
-            $scope.project_list=data;
-        })
-        .error(function(data,status,error,config){
-            $scope.project_list = [{heading:"Error",description:"Could not load json   data"}];
-        });
 $scope.activity_list = null;
-    $http.get('../app/json/activity_list.json')
-        .success(function(data) {
-            $scope.activity_list=data;
-        })
-        .error(function(data,status,error,config){
-            $scope.activity_list = [{heading:"Error",description:"Could not load json   data"}];
-        });
-
 $rootScope.statusHistory = [];
-    $http.get('../app/json/history.json')
-        .success(function(data) {
-            $rootScope.statusHistory=data;
-        })
-        .error(function(data,status,error,config){
-            $rootScope.statusHistory = [{heading:"Error",description:"Could not load json   data"}];
-        });
 
-    $scope.hours = [];
+UtilService.getProjects().then(function(data) {
+        $scope.project_list = data;
+    });
+UtilService.getActivities().then(function(data) {
+        $scope.activity_list = data;
+    });
+UtilService.getStatusHistory().then(function(data) {
+        $rootScope.statusHistory = data;
+    });
 
-    var i =0;
-    for(i=0; i<25; i++)
-    {
-        $scope.hours.push({id: i, value: i});
-    }
 
-    $scope.minutes = [];
-    i =0;
-    for(i=0; i<4; i++)
-    {
-        $scope.minutes.push({id: i, value: i*15});
-    }
-
-    $scope.dates = [];
-
-    var currentDate = new Date(); 
-    var first = currentDate.getDate(); 
-    var startDate = new Date(currentDate.setDate(first));
-    startDate = startDate.getDate()+"-" +(startDate.getMonth() + 1) + "-" + + startDate.getFullYear()  ;
-
-    i = 0;
-
-    for(i=0; i<10;i++)
-    {
-        var last = first-i;
-        var endDate = new Date(currentDate.setDate(last));
-        endDate = endDate.getDate()+"-" +(endDate.getMonth() + 1) + "-" +endDate.getFullYear()  ;
-
-        $scope.dates.push({
-            id: i,
-            title: endDate
-        });
-    }
- $scope.date= $scope.dates[0];
+$scope.hours=UtilService.getHours();
+$scope.minutes=UtilService.getMinutes();
+$scope.dates =UtilService.getDates();
+$scope.date= $scope.dates[0];
 $scope.hour= $scope.hours[8];
 $scope.minute= $scope.minutes[0];
 $scope.addItem =  function() {
