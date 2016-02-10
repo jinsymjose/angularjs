@@ -1,13 +1,13 @@
 <div class="history">
-    <h4><b>My History</b></h4>
+<b>My History</b>
 </div>
 
 <div ng-repeat="history in statusHistory.slice().reverse()"><br>
-<div class="status_history">
-<div class="history_date">{{history.date}}<br>
+<div class="status_history col-md-12">
+<div class="history_date col-md-2">{{history.date}}<br>
 Posted on 12:12:2015</div>
-<div class="history_description">{{history.description}}</div>
-<div class="history_third_div">
+<div class="history_description col-md-8">{{history.description}}</div>
+<div class="history_third_div col-md-2">
 {{history.time}} Hour(s)<br/>
 {{history.activity}}<br/>
 {{history.project}}

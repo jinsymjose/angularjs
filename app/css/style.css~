@@ -22,6 +22,7 @@ padding-top:20%;
 body {
 background-color: #fff;
 font-family:Verdana;
+
 }
 
 #login{
@@ -38,6 +39,11 @@ padding:40px;
 }
 .form_div{
 display:inline-block;
+font-size:12px;
+
+}
+.form_div1{
+font-size:12px;
 
 }
 .form_div select{
@@ -59,28 +65,37 @@ width:86px;
 }
 .status_history{
 border:1px solid #DDDDDD;
-padding:1%;
+padding:3%;
 background-color:#F3F3F3;
+font-size:12px;
+z-index:-1;
 }
- .history_date {
-      display: inline-block;
-      width: 20%; 
-}
- .history_third_div {
-      display: inline-block;
-      width: 20%;
-      position: relative;
-      left: 76%; 
-}
- .history_description {
-      display: inline-block;
-      width: 60%;
- position: relative;
-      left: 30%; 
+
+.history_description {
+
       font-weight: bold; 
 }
+
+ .history_date {
+      border-right: 1px solid #DDDDDD;
+    height: 50px;
+}
+ .history_third_div {
+         border-left: 1px solid #DDDDDD;
+    height: 50px;
+}
+
 .daily_status{ 
 border:1px solid #DDDDDD;
 padding:1%;
 background-color:#F3F3F3;
+}
+.history{
+font-size:14px;
+  font-weight: bold;
+}
+
+.heading{
+font-size:20px;
+  font-weight: bold;
 }
