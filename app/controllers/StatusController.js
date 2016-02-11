@@ -39,7 +39,7 @@ myAppModule
 										$scope.status.date = $rootScope.dates[fillItems.dateId + 1];
 									}
 									$scope.status.hour = $scope.hours[fillItems.hours];
-									$scope.status.minute = $scope.minutes[fillItems.mints];
+									$scope.status.minute = $scope.minutes[fillItems.mints/15];
 								}
 
 							};
