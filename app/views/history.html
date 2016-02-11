@@ -1,7 +1,6 @@
 <div class="history">
 	<b>My History</b>
 </div>
-
 <div ng-repeat="history in statusHistory.slice().reverse()">
 	<br>
 	<div class="status_history col-md-12">
@@ -12,6 +11,7 @@
 		<div class="history_third_div col-md-2">
 			{{history.time}} Hour(s)<br /> {{history.activity}}<br />
 			{{history.project}}
-
 			<div ng-show="!statusHistory.length">No items</div>
 		</div>
+	</div>
+</div>

@@ -1,4 +1,4 @@
-myAppModule.factory('UtilService', [
+myAppModule.factory('dataService', [
 		'$http',
 		function($http) {
 			return {
@@ -68,6 +68,5 @@ myAppModule.factory('UtilService', [
 					}
 					return dates;
 				}
-
 			}
 		} ]);

@@ -1,104 +1,113 @@
-header{
-background-color:#2C3742;
-height: 10%;
-width:100%;
- position: fixed;
-    top: 0%;
-left:0%;
-}
-footer{
-background-color:#2C3742;
-height: 10%;
-width:100%;
-    position: fixed;
-    bottom: 0%;
-left:0%;
+header {
+	background-color: #2C3742;
+	height: 10%;
+	width: 100%;
+	position: fixed;
+	top: 0%;
+	left: 0%;
 }
 
-.main{
-position: absolute;
-padding-top:20%;
+footer {
+	background-color: #2C3742;
+	height: 10%;
+	width: 100%;
+	position: fixed;
+	bottom: 0%;
+	left: 0%;
 }
+
+.main {
+	position: absolute;
+	padding-top: 20%;
+}
+
 body {
-background-color: #fff;
-font-family:Verdana;
-
+	background-color: #fff;
+	font-family: Verdana;
 }
 
-#login{
-border-radius: 25px;
-margin: auto;
-position: absolute;
-top:15%;
-left:35%;
-width:30%;
-border:1px solid #DDDDDD;
+#login {
+	border-radius: 25px;
+	margin: auto;
+	position: absolute;
+	top: 15%;
+	left: 35%;
+	width: 30%;
+	border: 1px solid #DDDDDD;
 }
-.row{
-padding:40px;
-}
-.form_div{
-display:inline-block;
-font-size:12px;
 
+.row {
+	padding: 40px;
 }
-.form_div1{
-font-size:12px;
 
+.form_div {
+	display: inline-block;
+	font-size: 12px;
 }
-.form_div select{
-    background-color:white;
-height:30px;
-}
-.form_div select.date,.form_div select.activity{
-width:173px;
 
+.form_div1 {
+	font-size: 12px;
 }
-.form_div select.project{
-width:372px;
+
+.form_div select {
+	background-color: white;
+	height: 30px;
 }
-.form_div select.hour{
-width:86px;
+
+.form_div select.date, .form_div select.activity {
+	width: 173px;
 }
-.form_div select.minute{
-width:86px;
+
+.form_div select.project {
+	width: 372px;
 }
-.status_history{
-border:1px solid #DDDDDD;
-padding:3%;
-background-color:#F3F3F3;
-font-size:12px;
-z-index:-1;
+
+.form_div select.hour {
+	width: 86px;
+}
+
+.form_div select.minute {
+	width: 86px;
+}
+
+.status_history {
+	border: 1px solid #DDDDDD;
+	padding: 3%;
+	background-color: #F3F3F3;
+	font-size: 12px;
+	z-index: -1;
 }
 
 .history_description {
-
-      font-weight: bold; 
+	font-weight: bold;
 }
 
- .history_date {
-      border-right: 1px solid #DDDDDD;
-    height: 50px;
-}
- .history_third_div {
-         border-left: 1px solid #DDDDDD;
-    height: 50px;
+.history_date {
+	border-right: 1px solid #DDDDDD;
+	height: 50px;
 }
 
-.daily_status{ 
-border:1px solid #DDDDDD;
-padding:1%;
-background-color:#F3F3F3;
-}
-.history{
-font-size:14px;
-  font-weight: bold;
+.history_third_div {
+	border-left: 1px solid #DDDDDD;
+	height: 50px;
 }
 
-.heading{
-font-size:20px;
-  font-weight: bold;
+.daily_status {
+	border: 1px solid #DDDDDD;
+	padding: 1%;
+	background-color: #F3F3F3;
 }
-.hour,.minute{
-display:inline;
+
+.history {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.heading {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.hour, .minute {
+	display: inline;
 }

@@ -25,7 +25,7 @@
 					</div>
 					<div class="form_div form-group"
 						ng-class="{ 'has-error' : statusForm.activity.$error.invalid && !statusForm.activity.$pristine }">
-						<br>Activity Type<br> <select ng-model="status.activity" 
+						<br>Activity Type<br> <select ng-model="status.activity"
 							class="activity form-control" name="activity"
 							ng-options="activity.title for activity in activity_list"
 							required>
@@ -56,7 +56,6 @@
 							name="description" class="form-control"
 							placeholder="Use T# or t# in your description to indicate Redmine ticket/task. For example : T#1234"
 							required></textarea>
-
 						<span
 							ng-show="statusForm.description.$error.invalid && !statusForm.description.$pristine "
 							class="help-block">Activity description required.</span>
