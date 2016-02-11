@@ -60,10 +60,14 @@
 							ng-show="statusForm.description.$error.invalid && !statusForm.description.$pristine "
 							class="help-block">Activity description required.</span>
 					</div>
-					<input type="submit" value="Save" class="btn btn-primary"
-						ng-disabled="statusForm.$invalid">
+					<div class="submit">
+						<input type="submit" value="Save" class="btn btn-primary"
+							ng-disabled="statusForm.$invalid">
+					</div>
+					<br>
 				</form>
 			</div>
 </div>
+
 
 

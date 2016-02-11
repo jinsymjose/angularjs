@@ -111,3 +111,8 @@ body {
 .hour, .minute {
 	display: inline;
 }
+
+.submit {
+	position: absolute;
+	left: 47%;
+}
