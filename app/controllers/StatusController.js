@@ -1,36 +1,46 @@
-myAppModule.controller('StatusController',['$scope','$http','$location','$rootScope','UtilService',function($scope,$http,$location,$rootScope,UtilService) {
+myAppModule
+		.controller(
+				'StatusController',
+				[
+						'$scope',
+						'$http',
+						'$location',
+						'$rootScope',
+						'UtilService',
+						'MyService',
+						function($scope, $http, $location, $rootScope,
+								UtilService, MyService) {
 
- $scope.project_list = null;
-$scope.activity_list = null;
-$rootScope.statusHistory = [];
+							UtilService.getProjects().then(function(data) {
+								$scope.project_list = data;
+							});
+							UtilService.getActivities().then(function(data) {
+								$scope.activity_list = data;
+							});
+							UtilService.getStatusHistory().then(function(data) {
+								$rootScope.statusHistory = data;
+							});
+							$scope.status = {};
+							$scope.fillItems = {};
+							$scope.hours = UtilService.getHours();
+							$scope.minutes = UtilService.getMinutes();
+							$rootScope.dates = UtilService.getDates();
 
-UtilService.getProjects().then(function(data) {
-        $scope.project_list = data;
-    });
-UtilService.getActivities().then(function(data) {
-        $scope.activity_list = data;
-    });
-UtilService.getStatusHistory().then(function(data) {
-        $rootScope.statusHistory = data;
-    });
+							$scope.status.date = $rootScope.dates[0];
+							$scope.status.hour = $scope.hours[8];
+							$scope.status.minute = $scope.minutes[0];
+							$scope.addItem = function(status) {
+								var flag = MyService.saveStatus(status);
+								if (flag) {
 
+									fillItems = MyService.setDetails(status);
+									console.log(fillItems.date);
+									if (fillItems.date == 1) {
+										$scope.status.date = $rootScope.dates[fillItems.dateId + 1];
+									}
+									$scope.status.hour = $scope.hours[fillItems.hours];
+									$scope.status.minute = $scope.minutes[fillItems.mints];
+								}
 
-$scope.hours=UtilService.getHours();
-$scope.minutes=UtilService.getMinutes();
-$scope.dates =UtilService.getDates();
-$scope.date= $scope.dates[0];
-$scope.hour= $scope.hours[8];
-$scope.minute= $scope.minutes[0];
-$scope.addItem =  function() {
-            $rootScope.statusHistory.push(
-                {
-                    date: $scope.date.title,
-                    project: $scope.project.title,
-                    activity: $scope.activity.title,
-                    time: $scope.hour.value +':' +$scope.minute.value ,
-                    description: $scope.description
-                });
-    };
-
-
-}]);
+							};
+						} ]);

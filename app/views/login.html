@@ -1,19 +1,28 @@
 <div id="login">
-    <div class="row">
-        <form name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate >
-            <h3>LOGIN FORM</h3><br>
-            <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
-    <label>Email</label>
-    <input type="email" name="email" class="form-control" ng-model="user.email">
-    <span ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email.</span>
-</div><br>
-            <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
-    <label>Password</label>
-    <input type="text" name="password" class="form-control" ng-model="user.password" ng-minlength="4" >
-    <span ng-show="loginForm.password.$error.minlength" class="help-block">Password must contains atleast 4 letters</span>
-</div><br><br>
-            <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" >Submit</button>
-        </form>
-<br><br>
-    </div>
+	<div class="row">
+		<form name="loginForm" ng-submit="submitForm(loginForm.$valid)"
+			novalidate>
+			<h3>LOGIN FORM</h3>
+			<br>
+			<div class="form-group"
+				ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+				<label>Email</label> <input type="email" name="email"
+					class="form-control" ng-model="user.email"> <span
+					ng-show="loginForm.email.$invalid && !loginForm.email.$pristine"
+					class="help-block">Enter a valid email.</span>
+			</div>
+			<br>
+			<div class="form-group"
+				ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+				<label>Password</label> <input type="text" name="password"
+					class="form-control" ng-model="user.password" ng-minlength="4">
+				<span ng-show="loginForm.password.$error.minlength"
+					class="help-block">Password must contains atleast 4 letters</span>
+			</div>
+			<br> <br>
+			<button type="submit" class="btn btn-primary"
+				ng-disabled="loginForm.$invalid">Submit</button>
+		</form>
+		<br> <br>
+	</div>
 </div>

@@ -1,51 +1,68 @@
-<div class="heading">
-		Daily Status
-</div>
+<div class="heading">Daily Status</div>
 <div class="daily_status">
-<h4 >Bursts<h4 >
-<div class="row">
-<form ng-submit="addItem()" name="statusForm" novalidate >
-    <div class="form_div form-group">
-      <br>  Date <br>
-        <select ng-model="date" class="date form-control"  placeholder="Date"
-            ng-options="date.title for date in dates" required>
-        </select>
-<span class="help-block" ng-show="submitted && statusForm.date.$error.required">Required</span>
-    </div>
-    <div class="form_div form-group">
-       <br> Project <br>
-        <select ng-model="project" class="project form-control" name="project"
-            ng-options="project.title for project in project_list" required >
-        </select>
- <span ng-show="(statusForm.project.$dirty || submitted) && statusForm.project.$error.required">
-      Email is required
-    </span>
-    </div>
-    <div class="form_div form-group">
-       <br>Activity Type<br>
-        <select ng-model="activity" class="activity form-control"
-            ng-options="activity.title for activity in activity_list" required>
-        </select>
-    </div>
-    <div class="form_div ">
-        <br>Time Spent (hours:minutes)<br>
-<div class=" form_div form-group  ">
-            <select ng-model="hour" class="hour  form-control"
-                ng-options="hour.value for hour in hours" required>
-            </select>
-</div>
-<div class="form_div form-group  ">
-            <select ng-model="minute" class="minute form-control"
-                ng-options="minute.value for minute in minutes" required>
-            </select>
-</div>
-    </div>
-<div class="form_div1 form-group">
-    <br>Activity Description <br>
-        <textarea  rows="5" cols="60" ng-model="description" class="form-control"  placeholder="Use T# or t# in your description to indicate Redmine ticket/task. For example : T#1234" required></textarea >
-        <br/>
-    <input type="submit" value="Save" class="btn btn-primary">
-</div>
-</form>
-</div>
+	<h4>
+		Bursts
+		<h4>
+			<div class="row">
+				<form ng-submit="addItem(status)" name="statusForm" novalidate>
+					<div class="form_div form-group"
+						ng-class="{ 'has-error' : statusForm.date.$invalid && !statusForm.date.$pristine }">
+						<br> Date <br> <select ng-model="status.date"
+							class="date  form-control" name="date" value="status.date"
+							ng-options="date as date.title for date in dates " required>
+						</select> <span class="help-block"
+							ng-show="submitted && statusForm.date.$error.required">Required</span>
+					</div>
+					<div class="form_div form-group"
+						ng-class="{ 'has-error' : statusForm.project.$error.required && statusForm.project.$dirty }">
+						<br> Project <br> <select ng-model="status.project"
+							class="project form-control" name="project"
+							ng-options="project.title for project in project_list" required>
+						</select> <span
+							ng-show="statusForm.project.$error.required && statusForm.project.dirty "
+							class="help-block">Select Project.</span>
+
+					</div>
+					<div class="form_div form-group"
+						ng-class="{ 'has-error' : statusForm.activity.$error.invalid && !statusForm.activity.$pristine }">
+						<br>Activity Type<br> <select ng-model="status.activity"
+							class="activity form-control" name="activity"
+							ng-options="activity.title for activity in activity_list"
+							required>
+						</select> <span
+							ng-show="statusForm.activity.$error.invalid && !statusForm.activity.$pristine "
+							class="help-block">Select Activity.</span>
+					</div>
+					<div class="form_div ">
+						<br>Time Spent (hours:minutes)<br>
+						<div class=" form_div form-group  ">
+							<select ng-model="status.hour" class="hour  form-control"
+								name="hour" value="status.hour"
+								ng-options="hour as hour.value for hour in hours " required>
+							</select>
+						</div>
+						<div class="form_div form-group  ">
+							<select ng-model="status.minute" class="minute form-control"
+								name="minute" value="status.minute"
+								ng-options="minute as minute.value for minute in minutes"
+								required>
+							</select>
+						</div>
+					</div>
+					<div class="form_div1 form-group"
+						ng-class="{ 'has-error' : statusForm.description.$error.required && !statusForm.description.$pristine }">
+						Activity Description <br>
+						<textarea rows="5" cols="60" ng-model="status.description"
+							name="description" class="form-control"
+							placeholder="Use T# or t# in your description to indicate Redmine ticket/task. For example : T#1234"
+							required></textarea>
+
+						<span
+							ng-show="statusForm.description.$error.required && !statusForm.description.$pristine "
+							class="help-block">Activity description required.</span>
+					</div>
+					<input type="submit" value="Save" class="btn btn-primary"
+						ng-disabled="statusForm.$invalid">
+				</form>
+			</div>
 </div>
