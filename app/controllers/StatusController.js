@@ -35,9 +35,12 @@ myAppModule
         $scope.status.activity = '';
  $scope.status.description = '';
 									fillItems = MyService.setDetails(status,$scope.dates);
-									if (fillItems.date == 1) {
-										$scope.status.date = $scope.dates[fillItems.dateId + 1];
+									if (fillItems.date == 1 && fillItems.date != 0) {
+										$scope.status.date = $scope.dates[fillItems.dateId -1];
+									}else if (fillItems.date == 1 && fillItems.date ==0) {
+										$scope.status.date = $scope.dates[0];
 									}
+
 									$scope.status.hour = $scope.hours[fillItems.hours];
 									$scope.status.minute = $scope.minutes[fillItems.mints/15];
 								}

@@ -18,7 +18,7 @@ myAppModule.service('MyService', [
 			this.setDetails = function(statusData,dates) {
 				var hour = 0;
 				var minute = 0;
-				var dateId = 0;
+				var dateId = 1;
 				var inputDate = statusData.date.value.split('-');
 				angular.forEach(dates, function(value, index) {
 					var historyDate = value.value.split('-');
@@ -26,9 +26,9 @@ myAppModule.service('MyService', [
 							&& (inputDate[1] == historyDate[1])
 							&& (inputDate[2] == historyDate[2])) {
 						hour = value.hour + statusData.hour.value;
-						minute += value.minute + statusData.minute.value;
+						minute = value.minute + statusData.minute.value;
 						value.hour = hour;
-						value.minute - minute;
+						value.minute = minute;
 						dateId = value.id;
 						return false;
 					}
@@ -38,7 +38,7 @@ myAppModule.service('MyService', [
 				returnflag.date = 0;
 				returnflag.hours = 8;
 				returnflag.mints = 0;
-                                  returnflag.dateId = 0;
+                                  returnflag.dateId = dateId;
 				var timeSpendinSec = (hour * 60 + minute);
 				if ((timeSpendinSec / 60) >= 8) {
 					returnflag.date = 1;
