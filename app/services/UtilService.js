@@ -61,7 +61,7 @@ myAppModule.factory('UtilService', [
 
 						dates.push({
 							id : i,
-							title : endDate,
+							value : endDate,
 							hour : 0,
 							minute : 0
 						});

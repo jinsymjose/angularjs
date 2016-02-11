@@ -4,23 +4,24 @@ myAppModule.service('MyService', [
 			this.saveStatus = function(statusData) {
 
 				$rootScope.statusHistory.push({
-					date : statusData.date.title,
+					date : statusData.date.value,
 					project : statusData.project.title,
 					activity : statusData.activity.title,
 					time : statusData.hour.value + ':'
 							+ statusData.minute.value,
 					description : statusData.description
 				});
+
 				return true;
 			};
 
-			this.setDetails = function(statusData) {
+			this.setDetails = function(statusData,dates) {
 				var hour = 0;
 				var minute = 0;
 				var dateId = 0;
-				var inputDate = statusData.date.title.split('-');
-				angular.forEach($rootScope.dates, function(value, index) {
-					var historyDate = value.title.split('-');
+				var inputDate = statusData.date.value.split('-');
+				angular.forEach(dates, function(value, index) {
+					var historyDate = value.value.split('-');
 					if ((inputDate[0] == historyDate[0])
 							&& (inputDate[1] == historyDate[1])
 							&& (inputDate[2] == historyDate[2])) {
@@ -36,16 +37,14 @@ myAppModule.service('MyService', [
 				var returnflag = {};
 				returnflag.date = 0;
 				returnflag.hours = 8;
-				returnflag.mints = 8;
+				returnflag.mints = 0;
+                                  returnflag.dateId = 0;
 				var timeSpendinSec = (hour * 60 + minute);
-				console.log(timeSpendinSec);
 				if ((timeSpendinSec / 60) >= 8) {
 					returnflag.date = 1;
-					console.log("greater");
 				} else {
 					var temp = 480 - timeSpendinSec;
 					var hours = temp / 60;
-					console.log(hours)
 					var integ = Math.floor(hours);
 					var fract = temp - integ * 60;
 					returnflag.hours = integ;

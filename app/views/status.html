@@ -9,23 +9,23 @@
 						ng-class="{ 'has-error' : statusForm.date.$invalid && !statusForm.date.$pristine }">
 						<br> Date <br> <select ng-model="status.date"
 							class="date  form-control" name="date" value="status.date"
-							ng-options="date as date.title for date in dates " required>
+							ng-options="date as date.value for date in dates " required>
 						</select> <span class="help-block"
 							ng-show="submitted && statusForm.date.$error.required">Required</span>
 					</div>
 					<div class="form_div form-group"
-						ng-class="{ 'has-error' : statusForm.project.$error.required && statusForm.project.$dirty }">
+						ng-class="{ 'has-error' : statusForm.project.$error.invalid && !statusForm.project.$pristine }">
 						<br> Project <br> <select ng-model="status.project"
 							class="project form-control" name="project"
 							ng-options="project.title for project in project_list" required>
 						</select> <span
-							ng-show="statusForm.project.$error.required && statusForm.project.dirty "
+							ng-show="statusForm.project.$error.invalid && !statusForm.project.$pristine "
 							class="help-block">Select Project.</span>
 
 					</div>
 					<div class="form_div form-group"
 						ng-class="{ 'has-error' : statusForm.activity.$error.invalid && !statusForm.activity.$pristine }">
-						<br>Activity Type<br> <select ng-model="status.activity"
+						<br>Activity Type<br> <select ng-model="status.activity" 
 							class="activity form-control" name="activity"
 							ng-options="activity.title for activity in activity_list"
 							required>
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 					<div class="form_div1 form-group"
-						ng-class="{ 'has-error' : statusForm.description.$error.required && !statusForm.description.$pristine }">
+						ng-class="{ 'has-error' : statusForm.description.$error.invalid && !statusForm.description.$pristine }">
 						Activity Description <br>
 						<textarea rows="5" cols="60" ng-model="status.description"
 							name="description" class="form-control"
@@ -58,7 +58,7 @@
 							required></textarea>
 
 						<span
-							ng-show="statusForm.description.$error.required && !statusForm.description.$pristine "
+							ng-show="statusForm.description.$error.invalid && !statusForm.description.$pristine "
 							class="help-block">Activity description required.</span>
 					</div>
 					<input type="submit" value="Save" class="btn btn-primary"
@@ -66,3 +66,5 @@
 				</form>
 			</div>
 </div>
+
+

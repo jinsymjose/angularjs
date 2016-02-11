@@ -24,19 +24,19 @@ myAppModule
 							$scope.fillItems = {};
 							$scope.hours = UtilService.getHours();
 							$scope.minutes = UtilService.getMinutes();
-							$rootScope.dates = UtilService.getDates();
-
-							$scope.status.date = $rootScope.dates[0];
+							$scope.dates = UtilService.getDates();
+							$scope.status.date = $scope.dates[0];
 							$scope.status.hour = $scope.hours[8];
 							$scope.status.minute = $scope.minutes[0];
 							$scope.addItem = function(status) {
 								var flag = MyService.saveStatus(status);
 								if (flag) {
-
-									fillItems = MyService.setDetails(status);
-									console.log(fillItems.date);
+ $scope.status.project = '';
+        $scope.status.activity = '';
+ $scope.status.description = '';
+									fillItems = MyService.setDetails(status,$scope.dates);
 									if (fillItems.date == 1) {
-										$scope.status.date = $rootScope.dates[fillItems.dateId + 1];
+										$scope.status.date = $scope.dates[fillItems.dateId + 1];
 									}
 									$scope.status.hour = $scope.hours[fillItems.hours];
 									$scope.status.minute = $scope.minutes[fillItems.mints/15];
